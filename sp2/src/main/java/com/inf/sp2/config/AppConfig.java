@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+    //스프링 컨테이너에 빈 객체 등록
     @Bean
     public DiscountPolicy dicountPolicy(){
         //return new FixDiscountPolicy();
