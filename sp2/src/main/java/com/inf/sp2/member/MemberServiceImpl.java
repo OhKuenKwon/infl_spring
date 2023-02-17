@@ -10,7 +10,7 @@ public class MemberServiceImpl implements MemberService{
 
     //join, findMember 함수 수행을 위한 Repository 객체는 AppConfig에서 구체화 하여
     // 이 클래스의 생성자를 통해 주입해줌. 따라서 이 클래스에서는 join, findMember에만 집중하면됨
-    // --> 관심사 분리(이 클래스는 join, findMember만 집중, Repository 객체는 AppConfig에서 주입
+    // --> 관심사 분리(이 클래스는 join, findMember만 집중, Repository 객체는 AppConfig에서 주입)
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
