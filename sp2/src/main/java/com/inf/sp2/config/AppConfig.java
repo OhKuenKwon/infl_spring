@@ -3,6 +3,7 @@ package com.inf.sp2.config;
 import com.inf.sp2.discount.DiscountPolicy;
 import com.inf.sp2.discount.FixDiscountPolicy;
 import com.inf.sp2.discount.RateDiscountPolicy;
+import com.inf.sp2.member.MemberRepository;
 import com.inf.sp2.member.MemberService;
 import com.inf.sp2.member.MemberServiceImpl;
 import com.inf.sp2.member.MemoryMemberRepository;
@@ -20,13 +21,13 @@ public class AppConfig {
 
     //스프링 컨테이너에 빈 객체 등록
     @Bean
-    public DiscountPolicy dicountPolicy(){
+    public DiscountPolicy discountPolicy(){
         //return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
 
     @Bean
-    public MemoryMemberRepository memberRepository(){
+    public MemberRepository memberRepository(){
         return new MemoryMemberRepository();
     }
 
@@ -39,6 +40,6 @@ public class AppConfig {
     @Bean
     public OrderService orderService(){
         //사용할 구체적 객체(디스카운트 정책, 저장방법)를 생성자에 의해 주입 후 return
-        return new OrderServiceImpl(dicountPolicy(), memberRepository());
+        return new OrderServiceImpl(discountPolicy(), memberRepository());
     }
 }
