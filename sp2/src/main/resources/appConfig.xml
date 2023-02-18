@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="memberRepository" class="com.inf.sp2.repository.MemoryMemberRepository" />
+    <bean id="discountPolicy" class="com.inf.sp2.discount.RateDiscountPolicy" />
+
+    <bean id="memberService" class="com.inf.sp2.service.MemberServiceImpl">
+        <constructor-arg name="mr" ref="memberRepository" />
+    </bean>
+
+    <bean id="orderService" class="com.inf.sp2.service.OrderServiceImpl">
+        <constructor-arg name="mr" ref="memberRepository" />
+        <constructor-arg name="dp" ref="discountPolicy" />
+    </bean>
+</beans>
